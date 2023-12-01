@@ -1,0 +1,25 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "Advent of Code Solutions",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint solutions"
+  },
+  "author": {
+    "name": "Federico Rojas",
+    "email": "djizco@yahoo.com",
+    "url": "https://github.com/djizco"
+  },
+  "private": true,
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@babel/eslint-parser": "7.23.3",
+    "eslint": "8.54.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "ramda": "0.29.1"
+  }
+}
