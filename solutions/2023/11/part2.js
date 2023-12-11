@@ -67,20 +67,20 @@ function findDistance(universe, galaxyA, galaxyB, expansionFactor) {
   let horizontalDistance = Math.abs(galaxyA[1] - galaxyB[1]);
 
   for (let i = galaxyA[0]; i <= galaxyB[0]; i++) {
-    if (universe[i][galaxyA[1]] === 'x') verticalDistance += expansionFactor;
+    if (universe[i][galaxyA[1]] === 'x') verticalDistance += (expansionFactor - 2);
   }
 
   const left = Math.min(galaxyA[1], galaxyB[1]);
   const right = Math.max(galaxyA[1], galaxyB[1]);
 
   for (let j = left; j <= right; j++) {
-    if (universe[galaxyB[0]][j] === 'x') horizontalDistance += expansionFactor;
+    if (universe[galaxyB[0]][j] === 'x') horizontalDistance += (expansionFactor - 2);
   }
 
   return verticalDistance + horizontalDistance;
 }
 
-function calculateResult(data, expansionFactor = 8) {
+function calculateResult(data, expansionFactor = 10) {
   const universe = data.split('\n').map(row => row.split(''));
   const expandedUniverse = expandUniverse(universe);
   const galaxyLocations = findGalaxies(expandedUniverse);
@@ -89,12 +89,12 @@ function calculateResult(data, expansionFactor = 8) {
 
   for (let i = 0; i < galaxyLocations.length; i++) {
     for (let j = i + 1; j < galaxyLocations.length; j++) {
-      distances.push(findDistance(expandedUniverse, galaxyLocations[i], galaxyLocations[j]), expansionFactor);
+      distances.push(findDistance(expandedUniverse, galaxyLocations[i], galaxyLocations[j], expansionFactor));
     }
   }
 
   return R.sum(distances);
 }
 
-calculateResult(sampleData, 98); // => 8410 (98 factor)
-calculateResult(data, 999998); // => 611998089572 (999998 factor)
+calculateResult(sampleData, 100); // => 8410 (98 factor)
+calculateResult(data, 1000000); // => 611998089572 (999998 factor)
