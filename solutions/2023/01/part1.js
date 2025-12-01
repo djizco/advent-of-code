@@ -53,5 +53,5 @@ function calibrateDocument(data) {
   return values.reduce((prev, curr) => prev + curr, 0);
 }
 
-calibrateDocument(sampleData); // => 42
+calibrateDocument(sampleData); // => 142
 calibrateDocument(data); // => 52974;

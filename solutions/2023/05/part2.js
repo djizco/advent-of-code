@@ -87,4 +87,4 @@ function findLowestLocation(almanac) {
 }
 
 findLowestLocation(sampleData); // => 46;
-findLowestLocation(data); // => 137516820
+// findLowestLocation(data); // => 137516820
