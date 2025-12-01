@@ -57,33 +57,38 @@ Because the dial points at 0 a total of three times during this process, the pas
 
 Analyze the rotations in your attached document. What's the actual password to open the door?
 */
+const R = require('ramda');
 
 const sampleData = require('./sampleData1');
 const data = require('./data');
 
-
 function openSafe(data) {
-  let countAtZero = 0;
+  let count = 0;
   let position = 50;
 
-  const instructions = data.split('\n');
+  const turns = data.split('\n');
 
-  instructions.forEach(line => {
-    const direction = line[0];
-    const value = Number(line.slice(1));
+  turns.forEach(turn => {
+    const direction = turn[0];
+    const value = Number(turn.slice(1));
+    const clicks = R.range(0, value);
 
-    if (direction === 'L') {
-      position -= value;
-      while (position < 0) position += 100;
-    }
-    if (direction === 'R') {
-      position += value;
-      while (position > 99) position -= 100;
-    }
-    if (position === 0) countAtZero++
-  })
+    clicks.forEach(() => {
+      if (direction === 'L') {
+        position--;
+        if (position === -1) position = 99;
+      }
+      if (direction === 'R') {
+        position++;
+        if (position === 100) position = 0;
+      }
+    });
 
-  return countAtZero;
+    // Check after each entire turn (outside clicks loop)
+    if (position === 0) count++;
+  });
+
+  return count;
 }
 
 openSafe(sampleData); // => 3
