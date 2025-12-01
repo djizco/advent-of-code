@@ -36,9 +36,9 @@ function openSafe(data) {
   let count = 0;
   let position = 50;
 
-  const trusn = data.split('\n');
+  const turns = data.split('\n');
 
-  trusn.forEach(turn => {
+  turns.forEach(turn => {
     const direction = turn[0];
     const value = Number(turn.slice(1));
     const clicks = R.range(0, value);
