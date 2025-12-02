@@ -59,7 +59,7 @@ Analyze the rotations in your attached document. What's the actual password to o
 */
 const R = require('ramda');
 
-const sampleData = require('./sampleData1');
+const sampleData = require('./sampleData');
 const data = require('./data');
 
 function openSafe(data) {

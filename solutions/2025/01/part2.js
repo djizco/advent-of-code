@@ -29,7 +29,7 @@ Using password method 0x434C49434B, what is the password to open the door?
 */
 const R = require('ramda');
 
-const sampleData = require('./sampleData1');
+const sampleData = require('./sampleData');
 const data = require('./data');
 
 function openSafe(data) {
