@@ -77,4 +77,4 @@ function sumInvalidIds(data) {
 }
 
 sumInvalidIds(sampleData); // => 1227775554
-console.log(sumInvalidIds(data)); // => 53420042388
+sumInvalidIds(data); // => 53420042388
