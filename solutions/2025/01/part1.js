@@ -73,16 +73,19 @@ function openSafe(data) {
     const value = Number(turn.slice(1));
     const clicks = R.range(0, value);
 
-    clicks.forEach(() => {
-      if (direction === 'L') {
+    if (direction === 'L') {
+      clicks.forEach(() => {
         position--;
         if (position === -1) position = 99;
-      }
-      if (direction === 'R') {
+      });
+    }
+
+    if (direction === 'R') {
+      clicks.forEach(() => {
         position++;
         if (position === 100) position = 0;
-      }
-    });
+      });
+    }
 
     // Check after each entire turn (outside clicks loop)
     if (position === 0) count++;
