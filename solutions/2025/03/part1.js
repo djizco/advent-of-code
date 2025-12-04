@@ -36,12 +36,12 @@ function getHighestJoltage(bank) {
   const batteries = bank.split('').map(Number);
 
   // Find highest digit from all batteries except last one
-  const leftDigit = Math.max(...batteries.slice(0, batteries.length - 1));
-  const leftDigitIndex = batteries.indexOf(leftDigit);
+  const leftBattery = Math.max(...batteries.slice(0, batteries.length - 1));
+  const leftBatteryIndex = batteries.indexOf(leftBattery);
   // Find next high battery from all batteries right of first battery
-  const rightDigit = Math.max(...batteries.slice(leftDigitIndex + 1, batteries.length));
+  const rightBattery = Math.max(...batteries.slice(leftBatteryIndex + 1, batteries.length));
 
-  return Number(`${leftDigit}${rightDigit}`);
+  return Number(`${leftBattery}${rightBattery}`);
 }
 
 function findMaxJoltage(data) {
